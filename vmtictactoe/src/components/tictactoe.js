@@ -8,10 +8,25 @@ const Tictactoe = () => {
     //     const [time, setTime] = useState(0);
     //    // console.log("flag" + flag, "lights" + lightsoff)
 
-
+            let scoreX=[];
+            let scoreO=[];
+            let i=0;
+            let j=0;
             const getplay = (event) => {
-            let idval = event.target.id;
-                  console.log(event.target);
+                  let idval = event.target.id;
+                  if (idval === "4"){
+                      //let num = document.body.querySelector("#4").value;
+                      //let xnum = document.getElementById("4");
+                      document.getElementById(idval).innerHTML = "X" ;
+                      document.getElementById(idval).style.opacity = ".3";
+                      document.getElementById(idval).disable=true;
+                      scoreX.push(idval);
+
+
+                  }
+
+
+                console.log(event.target, idval, scoreX);
                 // document.getElementById("yellowone").style.opacity = ".3";
                 // document.getElementById("greenone").style.opacity = ".3";
                 // document.getElementById("walk").style.opacity = ".3";
