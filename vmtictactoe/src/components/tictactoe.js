@@ -5,7 +5,7 @@ import './squaremagic.css';
 const Tictactoe = () => {
 
          const [play, setPlay] = useState("X");
-    //     const [time, setTime] = useState(0);
+         const [count, setCount] = useState(0);
     //    // console.log("flag" + flag, "lights" + lightsoff)
 
             let scoreX=[];
@@ -15,20 +15,24 @@ const Tictactoe = () => {
             const getplay = (event) => {
                   let idval = event.target.id;
                   (play === "X") ? setPlay("O") : setPlay("X");
-                      //let num = document.body.querySelector("#4").value;
-                      //let xnum = document.getElementById("4");
                       document.getElementById(idval).innerHTML = play ;
                       document.getElementById(idval).style.opacity = ".3";
                       document.getElementById(idval).disable=true;
                       document.getElementById(idval).style.pointerEvents = 'none';
-                      scoreX.push(idval);
+                      (play === "X") ? scoreX.push(idval) : scoreO.push(idval);
+                      setCount(count + 1);
+            const getwinner = () => {
 
+                    if (count >= 3) {
+                        for (i=0; i < score)
+                    }
+            }
 
-                console.log(event.target, idval, scoreX);
-                // document.getElementById("yellowone").style.opacity = ".3";
-                // document.getElementById("greenone").style.opacity = ".3";
-                // document.getElementById("walk").style.opacity = ".3";
-                // document.getElementById("stop").style.opacity = ".3";
+                     console.log(event.target, idval, scoreX);
+                    // document.getElementById("yellowone").style.opacity = ".3";
+                    // document.getElementById("greenone").style.opacity = ".3";
+                    // document.getElementById("walk").style.opacity = ".3";
+                    // document.getElementById("stop").style.opacity = ".3";
             }
 
 
