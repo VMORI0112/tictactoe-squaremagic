@@ -4,7 +4,7 @@ import './squaremagic.css';
 
 const Tictactoe = () => {
 
-    //     const [flag, setFlag] = useState(0);
+         const [play, setPlay] = useState("X");
     //     const [time, setTime] = useState(0);
     //    // console.log("flag" + flag, "lights" + lightsoff)
 
@@ -14,17 +14,14 @@ const Tictactoe = () => {
             let j=0;
             const getplay = (event) => {
                   let idval = event.target.id;
-                  if (idval === "4"){
+                  (play === "X") ? setPlay("O") : setPlay("X");
                       //let num = document.body.querySelector("#4").value;
                       //let xnum = document.getElementById("4");
-                      document.getElementById(idval).innerHTML = "X" ;
+                      document.getElementById(idval).innerHTML = play ;
                       document.getElementById(idval).style.opacity = ".3";
                       document.getElementById(idval).disable=true;
                       document.getElementById(idval).style.pointerEvents = 'none';
                       scoreX.push(idval);
-
-
-                  }
 
 
                 console.log(event.target, idval, scoreX);
