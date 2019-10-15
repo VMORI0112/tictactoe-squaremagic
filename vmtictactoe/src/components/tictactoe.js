@@ -20,6 +20,7 @@ const Tictactoe = () => {
                       document.getElementById(idval).innerHTML = "X" ;
                       document.getElementById(idval).style.opacity = ".3";
                       document.getElementById(idval).disable=true;
+                      document.getElementById(idval).style.pointerEvents = 'none';
                       scoreX.push(idval);
 
 
