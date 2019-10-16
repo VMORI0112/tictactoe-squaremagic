@@ -6,12 +6,22 @@ const Tictactoe = () => {
 
          const [play, setPlay] = useState("X");
          const [count, setCount] = useState(0);
-    //    // console.log("flag" + flag, "lights" + lightsoff)
+         const [xwon, setXwon] = useState(false);
+         const [owon, setOwon] = useState(false);
+        // console.log("flag" + flag, "lights" + lightsoff)
 
-            let scoreX=[];
-            let scoreO=[];
             let i=0;
             let j=0;
+
+            const getini = () => {
+                     if (count === 1){
+                      var scoreX=[];
+                      var scoreO=[];
+                      var winx=0;
+                      var wino=0;
+                    }
+            }
+            console.log(count, scoreX, scoreO);
             const getplay = (event) => {
                   let idval = event.target.id;
                   (play === "X") ? setPlay("O") : setPlay("X");
@@ -21,19 +31,37 @@ const Tictactoe = () => {
                       document.getElementById(idval).style.pointerEvents = 'none';
                       (play === "X") ? scoreX.push(idval) : scoreO.push(idval);
                       setCount(count + 1);
+                     console.log(count, scoreX, scoreO);
+            }
+            getini();
+
             const getwinner = () => {
 
-                    if (count >= 3) {
-                        for (i=0; i < score)
+                    if (count >= 3 && count <= 9) {
+                        console.log(count, scoreX, scoreO);
+                        for (i=0; i < scoreX.length; i++) {
+                             winx = winx + scoreX[i] ;
+                        }
+                        if (winx === 15) {
+                            setXwon(true) ;
+                        } else {
+                            for (j=0; j < scoreO.length; j++) {
+                                wino = wino + scoreO[j] ;
+                            }
+                            if (wino === 15){
+                                setOwon(true)
+                            }
+
+                        }
                     }
             }
 
-                     console.log(event.target, idval, scoreX);
+                     console.log(idval, winx, wino, xwon, owon);
                     // document.getElementById("yellowone").style.opacity = ".3";
                     // document.getElementById("greenone").style.opacity = ".3";
                     // document.getElementById("walk").style.opacity = ".3";
                     // document.getElementById("stop").style.opacity = ".3";
-            }
+
 
 
     // useEffect(() => {
