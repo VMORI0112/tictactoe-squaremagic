@@ -8,20 +8,23 @@ const Tictactoe = () => {
          const [count, setCount] = useState(0);
          const [xwon, setXwon] = useState(false);
          const [owon, setOwon] = useState(false);
+         const [scoreX, setScoreX] = useState([]);
+         const [scoreO, setScoreO] = useState([]);
+         const [winx, setWinx] = useState(0);
+         const [wino, setWino] = useState(0);
         // console.log("flag" + flag, "lights" + lightsoff)
 
             let i=0;
             let j=0;
 
             const getini = () => {
-                     if (count === 1){
-                      var scoreX=[];
-                      var scoreO=[];
-                      var winx=0;
-                      var wino=0;
-                    }
+                  if (count === 1){
+                      setScoreX([]);
+                      setScoreO([]);
+                      setWinx(0);
+                      setWino(0);
+                   }
             }
-            console.log(count, scoreX, scoreO);
             const getplay = (event) => {
                   let idval = event.target.id;
                   (play === "X") ? setPlay("O") : setPlay("X");
@@ -31,14 +34,15 @@ const Tictactoe = () => {
                       document.getElementById(idval).style.pointerEvents = 'none';
                       (play === "X") ? scoreX.push(idval) : scoreO.push(idval);
                       setCount(count + 1);
-                     console.log(count, scoreX, scoreO);
+                    //  console.log(count, scoreX, scoreO);
+            console.log(count, scoreX, scoreO);
             }
-            getini();
+            // getini();
 
             const getwinner = () => {
 
                     if (count >= 3 && count <= 9) {
-                        console.log(count, scoreX, scoreO);
+                        // console.log(count, scoreX, scoreO);
                         for (i=0; i < scoreX.length; i++) {
                              winx = winx + scoreX[i] ;
                         }
@@ -56,7 +60,7 @@ const Tictactoe = () => {
                     }
             }
 
-                     console.log(idval, winx, wino, xwon, owon);
+                    //  console.log(winx, wino, xwon, owon);
                     // document.getElementById("yellowone").style.opacity = ".3";
                     // document.getElementById("greenone").style.opacity = ".3";
                     // document.getElementById("walk").style.opacity = ".3";
@@ -105,6 +109,7 @@ const Tictactoe = () => {
             </div>
             <div class="col-12 col-sm-2 tic-panel"> PANEL-THINGY<br/>Score:<br/>Foo bar: stuff<br/> Reset game and all that blank </div>
              <div class="col-12 col-sm-2 ads"> ads </div>
+             <div class="col-12 col-sm-2 ads"> {count} </div>
          </div>
   </div>
       </>
